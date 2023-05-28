@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On test js</title>
+    <script type="text/javascript">
+
+        const a = 1;
+
+        let b = 2;
+        b = 3.432;
+        
+        const quote = 'aujourd\'hui';
+        const guiellet = "zdzf\n";
+        const backtick = `il était une fois
+ meme si j'aipe pas ça`;
+        
+
+        const f = "les gens";
+        const g = "salut";
+        
+        const bactticktest = `salut ${f}`;
+
+        let t = false; 
+        t = true;
+        t = null; //y'a rien dedands
+        t = undefined; // variable non définit
+        // Exemple :
+        const test2 = undefined;
+        let test3;
+
+
+        const tab1 = [
+            1, 
+            2, 
+            3.54, 
+            "bonjour",
+            'hehe',
+            `coucou ${a}`,
+            [1, 2, 3]
+        ]
+        
+        const person = {
+            firstname: "John",
+            lastname: "Bond",
+            age: 24,
+            notes: [10, 18, 14, 8, 20],
+            job: {
+                name: "informaticien",
+                salaire: 2000
+            },
+            "salut toi" : "bonjour",
+            [f]: 1,
+        }
+
+        let testtype = typeof b;
+        testtype =typeof person;
+        
+
+        //######################################################
+
+
+        const age = 1;
+        const pays = "FR"
+        if(pays === "FR"&& age >= "18"){
+            console.log("ouii");
+        }
+        else if(pays === "FR"){
+            console.log("ok")
+        }
+        else {
+            console.log("et non");
+        }
+        
+        switch (pays){
+            case "FR" :
+                console.log("je suis en France");
+                break;
+            case "US":
+                console.log("je suis aux USA");
+                break;
+            default: 
+                console.log("je suis sur mars");
+                break;
+        }
+        
+        console.log("###############")
+
+        const nb1 = prompt("Entrez la première valeur");
+        console.log(nb1);
+        const nb2 = prompt("Entrez la deuxième valeur");
+        const result = nb1*nb2;
+        let sign;
+
+        if(isNaN(result) || result === 0){
+            console.log(`Opération impossible: ${result}`);
+        }
+        else{
+            if(result > 0){
+                sign = "positif";
+            }
+            else{
+                sign = "négatif";
+            }
+            console.log(`${nb1}x${nb2}=${result} est ${sign}`);
+        }
+
+
+    
+    </script>
+
+    <script type="text/javascript" src="../js/script1-portee-variables.js" name="portee-variables">
+        
+    </script>
+
+</head>
+<body>
+    <p>oue oue</p>
+</body>
+</html>
