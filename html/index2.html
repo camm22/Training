@@ -5,11 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index 2</title>
-    <script type="text/javascript">
+    <script type="text/javascript" name="boucle">
+
+        const tab = [
+            12, 
+            13, 
+            14
+        ];
+
+        for(let i=0; i<tab.length; i++){
+            console.log(i);
+            console.log(tab[i]);
+        }
+
+        console.log("#####################################")
+
+        for(let i in tab){
+            console.log(i);
+            console.log(tab[i]);
+        }
+
+        console.log("**********")
+
+        for(let i of tab){
+            console.log(i);
+            console.log(tab[i]);
+        }
+        
+        console.log("#####################################")
 
 
+        const obj = {
+            firstname: "James",
+            lastname: "Bond",
+            age: 43,
+            arme: "G19",
+            "arme de point": "opinnel"
+        };
+
+        for(let i in obj){
+            console.log(i);
+            console.log(typeof i);
+            console.log(obj[i]);
+        }
+
+        // for(let i of obj){
+        //     console.log(i);
+        // } ne marche pas pour les objets
 
     </script>
+
+    <script type="text/javascript" src="../js/script2-fonctions.js" name="les fonctions"></script>
+
 </head>
 <body>
     <p>coucou</p>
