@@ -77,7 +77,7 @@ function guess(){
 
 
 
-let cpt = 3;
+let cpt = 0; // mettre cpt à 3 pour tester le programme
 while(cpt >= 1){
     console.log("Devinez le nombre (attention, il ne vous reste plus que", cpt, "essais)");
     if (guess()){
@@ -90,5 +90,3 @@ while(cpt >= 1){
     }
     cpt--;
 }
- 
-
