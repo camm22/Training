@@ -6,12 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index 3</title>
     <script type="text/javascript" name="class">
-        
 
+    const a = "ee";
 
+    class Student {
+        ecole = "Jule ferry";
+        _notes = [];
+        #secret = "Hello";
 
+        constructor (firstname, lastname) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+        }
 
+        set notes (v) {
+            if (Array.isArray(v)){
+                this._notes = v;
+            }
+        }
 
+        get name () {
+            return `${this.firstname} ${this.lastname}`
+        }
+
+        canPass () {
+            let moyenne=0;
+            for(let note of this._notes){
+                moyenne+=note;
+            }
+            if(moyenne != 0){
+                moyenne /= this._notes.length;
+            }
+            if(moyenne >= Student.moyenne){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        static moyenne = 10;
+
+        static hello() {
+            console.log("Bonjour");
+        }
+    }
+
+    class SuperStudent extends Student{
+
+        constructor (firstname, lastname, notes) {
+            super(firstname, lastname);
+            this._notes = notes;
+        }
+
+        get name () {
+            return `Super ${super.name}`;
+        }
+
+        canPass () {
+            return super.canPass();
+        }
+    }
+
+    const john = new SuperStudent("John", "Doe", [0, 10, 8]);
+    const jane = new Student("Jane", "Doe");
+    jane.notes = [15, 18, 19];
+    console.log(john.name);
+
+    const ex = {
+        firstname: "camille",
+        c: function (){
+            console.log("bonjour je m'appelle " ,this.firstname);
+        }
+    }
 
 
     </script>
