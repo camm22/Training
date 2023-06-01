@@ -107,3 +107,6 @@ const l = new Library();
 l.addBook(b);
 l.addBooks([new Book("Ready Player One", 100), new Book("Oui-Oui", 10), new Book("Sillage", 50)]);
 console.log(l.findBooksByLetter('S'));
+
+
+console.log("fin");
