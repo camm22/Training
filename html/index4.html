@@ -27,6 +27,8 @@
         class Student {
             ecole = "Jule Ferry";
             _notes = [];
+            
+            #secret = "hehe"; // équivaut à une variable privée
 
             constructor(firstname, lastname){
                 this.firstname = firstname;
@@ -45,24 +47,58 @@
             }
 
             canPass () {
-                return moyenne1(this._notes) >= 10;
+                return moyenne1(this._notes) >= Student.moyenne;
+            }
+
+            static moyenne = 10;
+
+            static hello(){
+                console.log("hello !"); 
             }
 
         }
 
+        Student.bonjour = () => {
+            console.log("Bonjour !");
+        } //ici c'est comme  si on créer une fonction/ méthode ou une variable static dans Student
+        
+
+        class SuperStudent extends Student {
+
+            constructor (firstname, lastname, notes) {
+                super(firstname, lastname);
+                this._notes = notes;
+
+            }
+
+            get name (){
+                return `Super ` + super.name;
+            }
+
+            canPass(){
+                return super.canPass(); // ou return true; par exemple
+            }
+        }
+
+
         const john = new Student("Jhon", "Wick");
-        const jane = new Student("Jane", "Wick");
+        const jane = new SuperStudent("Jane", "Wick", [0, 10, 8]);
+
+        console.log(john, jane);
 
         john.notes = 19;
         console.log(john.canPass());
         john.notes = [20, 10];
         console.log(john.canPass());
-
-        console.log(john, jane);
-
         console.log(john.name);
 
+        //jane.notes = [0, 10, 8];
+        console.log(jane.canPass());
+
     </script>
+
+
+    <script type="text/javascript" src = "../js/script4-try-reClass.js" name="re les class"></script>
 
 </head>
 <body>
