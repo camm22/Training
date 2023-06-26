@@ -7,9 +7,26 @@
 
     <script>
 
+        function moyenne1 (tab){
+            let nb = 0;
+            for(let i of tab){
+                nb += i;
+            }
+            return nb / tab.length;
+        }
+
+        const moyenn2 = (tab) => {
+            let nb = 0;
+            for(let i of tab){
+                nb += i;
+            }
+            return nb / tab.length;
+        }
+
 
         class Student {
             ecole = "Jule Ferry";
+            _notes = [];
 
             constructor(firstname, lastname){
                 this.firstname = firstname;
@@ -17,19 +34,33 @@
             }
 
 
-            setNotes (notes){
-                this.notes = notes;
+            set notes (n){
+                if (Array.isArray(n)){
+                    this._notes = n;
+                }
             }
 
+            get name (){
+                return `${this.firstname} ${this.lastname}`;
+            }
+
+            canPass () {
+                return moyenne1(this._notes) >= 10;
+            }
 
         }
 
         const john = new Student("Jhon", "Wick");
         const jane = new Student("Jane", "Wick");
 
-        john.setNotes([5, 20]);
+        john.notes = 19;
+        console.log(john.canPass());
+        john.notes = [20, 10];
+        console.log(john.canPass());
 
         console.log(john, jane);
+
+        console.log(john.name);
 
     </script>
 
