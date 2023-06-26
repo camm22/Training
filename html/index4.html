@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index 4</title>
+
+    <script>
+
+
+        class Student {
+            ecole = "Jule Ferry";
+
+            constructor(firstname, lastname){
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+
+
+            setNotes (notes){
+                this.notes = notes;
+            }
+
+
+        }
+
+        const john = new Student("Jhon", "Wick");
+        const jane = new Student("Jane", "Wick");
+
+        john.setNotes([5, 20]);
+
+        console.log(john, jane);
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>
