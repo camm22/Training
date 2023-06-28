@@ -38,14 +38,70 @@ class Square extends Rectangle{
 try {
     const r = new Rectangle(-4, 5);
 } catch(e) {
-    console.log(e);  //e.message (juste pour afficher le messaage de l'erreur)
+    console.log(e.message);  //e.message (juste pour afficher le messaage de l'erreur)
 }
 
 //const r = new Rectangle(-4, 5);
 
 
-const width = parseInt(prompt("largeur"), 10);
-const height = parseInt(prompt("Largeur"), 10);
+try {
+    const width = parseInt(prompt("largeur"), 10);
+    const height = parseInt(prompt("hauteur"), 10);
+    const r = new Rectangle(width, height);
+    console.log(r.perimeter);
+} catch(e){
+    console.log("Impossible de construe de la forme : ERROR :" + e.message);
+}
+
+//Erreur personnalisée  :
+class PromptError extends Error {
+    //...
+}
+
+
+//Ici on fait un refro, pour renvoyer une erreur plus significative.
+function promptRectanggle() {
+    try {
+        const width = parseInt(prompt("largeur"), 10);
+        const height = parseInt(prompt("hauteur"), 10);
+        const r = new Rectangle(width, height);
+        return r;
+    } catch(e){
+        throw new Error("Entrée utilisataeur invalide", {cause: e}); //pour rajoutter la cause du e qui est renvoyé dans l'initialisation d'un nouveau rectangle dans r, comme ca on a plus d'info sur les origines de l'erreur 
+    }
+    //ici on remplacer Error par PromptError pour tester les erreur personnalisée mais comme c'est la même ici ca change rien
+}
+//dans la cause on peut assi mettre d'autre info à part le message par exemple :
+//  {cause : {code : 404, url: "https://-----.fr"}}
+
+
+try{
+    promptRectanggle();
+} catch(e) {
+    //console.log(e.message, e); ici pour afficher à la fois le message de e bien mais aussi e tout coourt avec son formatage "bizarre" par défault.
+    console.log(e.message, {e}); //ici pour afficher e sous sa vrai forme d'obejet non formatée car e est un objet (on peut aussi écrire {e: e})
+}
+
+
+//ici on teste l'erreur personnalisée et ca ressemble bcp au polymorphisme en java car on veut savoir si notre erreur est une instacnce de Error ou de Prompt Error ce qui est hyper utile pour pouvoir réagir différament selon le type d'erreur qu'on a facilement.
+
+try {
+    promptRectanggle();
+} catch(e) {
+    if(e instanceof PromptError) {
+        console.log("PromptError");
+    }
+    else{
+        console.log("Error calssique");
+    }
+}
+
+
+//ce qui faut retenir des erreurss, c'est qu'a chaque fois qu'on crée une fonction où il peut ya avoir un erreur dans l'exécution,
+//il faut toujours esssayer de renvoyer l'erreur pour savoir d'où ca vient quand ca bug
+
+
+
 
 
 //################# Exo 2 ###################################
