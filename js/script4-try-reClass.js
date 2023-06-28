@@ -4,6 +4,10 @@
 class Rectangle {
     
     constructor(width, height){
+        if(width < 0 || height < 0){
+            throw new Error("Impossible d'avoir une forme géométrique des dimensions négatives");
+        }
+
         this.width = width;
         this.height = height;
     }
@@ -31,11 +35,22 @@ class Square extends Rectangle{
 
 }
 
+try {
+    const r = new Rectangle(-4, 5);
+} catch(e) {
+    console.log(e);  //e.message (juste pour afficher le messaage de l'erreur)
+}
 
+//const r = new Rectangle(-4, 5);
+
+
+const width = parseInt(prompt("largeur"), 10);
+const height = parseInt(prompt("Largeur"), 10);
 
 
 //################# Exo 2 ###################################
 
+console.log("##############################################")
 
 
 class Book {
