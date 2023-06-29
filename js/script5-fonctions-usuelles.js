@@ -19,3 +19,13 @@ notes.forEach((note,index) => {
 
 notes.forEach((note, index) => console.log(note, index));
 
+const mot = "foo";
+const reMot = Array.from(mot);
+console.log(reMot);
+
+console.log(notes.includes(12));
+
+console.log(notes.indexOf(18));
+
+// Méthode join important
+
