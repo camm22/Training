@@ -27,5 +27,8 @@ console.log(notes.includes(12));
 
 console.log(notes.indexOf(18));
 
-// Méthode join important
+console.log(notes.join('.'));
+
+const newNotes = notes.map(note => note * 2);
+console.log(newNotes);
 
