@@ -15,7 +15,7 @@ console.log(indexFound);
 
 notes.forEach((note,index) => {
     console.log(note,index);
-})
+});
 
 notes.forEach((note, index) => console.log(note, index));
 
@@ -31,4 +31,20 @@ console.log(notes.join('.'));
 
 const newNotes = notes.map(note => note * 2);
 console.log(newNotes);
+
+console.log(notes.reduce((acc, note) => acc + note, 0));
+
+console.log(notes.shift(), notes);
+
+console.log(notes.slice(2,4));
+
+console.log(notes.slice().shift(), notes);
+
+console.log(notes.push(5), notes);
+
+console.log(notes.unshift(5), notes);
+
+
+//Fonction sur objet :
+
 
